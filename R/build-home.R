@@ -43,7 +43,7 @@ build_home <- function(pkg = ".", path = "docs", depth = 0L) {
   if (identical(tools::file_ext(data$path), "Rmd")) {
     # Render once so that .md is up to date
     message("Updating README.md")
-    rmarkdown::render(data$path, quiet = TRUE)
+    rmarkdown::render(data$path, quiet = TRUE, envir=new.env())
     # In case preview_html = TRUE
     unlink(file.path(pkg$path, "README.html"))
 
